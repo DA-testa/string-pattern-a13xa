@@ -5,7 +5,7 @@ def read_input():
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     inp = input().rstrip()
     if inp == 'F':
-        with open('./tests') as f:
+        with open('./tests','r') as f:
             pattern=f.readline().strip()
             text=f.readline().strip()
     else:
@@ -44,7 +44,7 @@ def get_gad(pattern, text):
             if text[i:i+m] == pattern:
                 gad.append(i)
     # and return an iterable variable
-    return [0]
+    return gad
 
 
 # this part launches the functions
