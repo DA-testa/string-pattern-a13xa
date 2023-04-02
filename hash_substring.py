@@ -5,7 +5,7 @@ def read_input():
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     inp = input().rstrip()
     if inp == 'F':
-        with open('./tests','r') as f:
+        with open('tests.txt','r') as f:
             pattern=f.readline().strip()
             text=f.readline().strip()
     else:
@@ -36,7 +36,7 @@ def get_gad(pattern, text):
         n[i]=(n[i-1]*k)%p
     pattern_hash = sum(ord(pattern[i])*n[m-i] for i in range(m))%p
     h[0]=sum(ord(text[i])*n[m-i-1] for i in range(m))%p
-    for i in range(len(text)-m+1):
+    for i in range(len(text)-m):
         h[i+1]=((h[i]-ord(text[i])*n[m-1])*k+ord(text[i+m]))%p
     gad = []
     for i in range(len(text)-m+1):
@@ -50,4 +50,5 @@ def get_gad(pattern, text):
 # this part launches the functions
 if __name__ == '__main__':
     print_gad(get_gad(*read_input()))
+
 
