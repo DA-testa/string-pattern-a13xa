@@ -3,18 +3,14 @@
 def read_input():
     # this function needs to aquire input both from keyboard and file
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
-    inp = input().rstrip().upper()
+    inp = input().strip().upper()
     if inp == 'F':
         with open('./tests/06','r') as f:
             pattern=f.readline().strip()
             text=f.readline().strip()
     elif inp == 'I':
-        pattern=input().rstrip().lower()
-        text=input().rstrip().lower()
-        
-    else:
-        print("wrong inp")
-        return None
+        pattern=input().strip()
+        text=input().strip()
     # after input type choice
     # read two lines
     # first line is pattern
@@ -45,6 +41,14 @@ def get_gad(pattern, text):
         ht = (ht * x + ord(text[i+m-1])) % q
         if ht == hp and text[i:i+m] == pattern:
             gad.append(i)
+        elif ht == hp:
+            is_match = True
+            for j in range(m):
+                if text[i+j] != pattern[j]:
+                    is_match = False
+                    break
+            if is_match:
+                gad.append(i)
     return gad
 
 # this part launches the functions
