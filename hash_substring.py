@@ -6,11 +6,13 @@ def read_input():
     inp = input().rstrip()
     if inp == 'F':
         with open('./tests/06','r') as f:
-            pattern=f.readline().rstrip().lower()
-            text=f.readline().rstrip().lower()
+            pattern=f.readline().rstrip()
+            text=f.readline().rstrip()
+            return pattern.lower(), text.lower()
     elif inp == 'I':
         pattern=input().rstrip().lower()
         text=input().rstrip().lower()
+        return pattern, text
     else:
         print("wrong inp")
         return None
@@ -20,12 +22,11 @@ def read_input():
     # second line is text in which to look for pattern
     # return both lines in one return
     # this is the sample return, notice the rstrip function
-    return pattern, text
+    
 
 def print_gad(output):
     # this function should control output, it doesn't need any return
     print(' '.join(map(str, output)))
-
 def get_gad(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
     k=31
@@ -52,10 +53,10 @@ def get_gad(pattern, text):
             while j < m and text[i+j] == pattern[j]:
                 j += 1
             if j == m:
-                gad.append(i)
+                gad.append(str(i))
 
     # and return an iterable variable
-    return gad
+    return ' '.join(gad)
 
 
 # this part launches the functions
