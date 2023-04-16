@@ -15,10 +15,9 @@ def read_input():
     # read two lines 
     # first line is pattern 
     # second line is text in which to look for pattern 
-    if not 1 <= len(pattern) <= len(text) <= 5 * 10**5:
-        raise ValueError("Input strings are too large")
-    if not all(c.isalpha() and c.islower() for c in pattern + text):
-        raise ValueError("Input strings must contain only lowercase letters")
+    if any(c.isupper() for c in pattern + text):
+        raise ValueError("")
+    
 
     # return both lines in one return
     
