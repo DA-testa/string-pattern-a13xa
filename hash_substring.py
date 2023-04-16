@@ -39,7 +39,8 @@ def get_gad(pattern, text):
     h[0]=sum(ord(text[i])*n[m-i-1] for i in range(m))%p
 
     for i in range(len(text)-m+1):
-        h[i+1]=((h[i]-ord(text[i])*n[m-1])*k+ord(text[i+m]))%p
+        if i+m < len(text):
+            h[i+1]=((h[i]-ord(text[i])*n[m-1])*k+ord(text[i+m]))%p
 
     gad = []
     for i in range(len(text)-m+1):
