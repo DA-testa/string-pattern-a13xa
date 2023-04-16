@@ -24,6 +24,7 @@ def print_gad(output):
     print(' '.join(map(str, output)))
 
 def get_gad(pattern, text):
+    print("get_gad() funkcija")
     # this function should find the occurances using Rabin Karp alghoritm 
     k=31
     p=10**9 + 9
