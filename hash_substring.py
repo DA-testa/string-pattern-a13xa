@@ -53,10 +53,10 @@ def get_gad(pattern, text):
             while j < m and text[i+j] == pattern[j]:
                 j += 1
             if j == m:
-                gad.append(str(i))
+                gad.append(i)
 
     # and return an iterable variable
-    return ' '.join(gad)
+    return gad
 
 
 # this part launches the functions
