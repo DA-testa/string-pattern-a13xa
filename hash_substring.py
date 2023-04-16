@@ -5,7 +5,7 @@ def read_input():
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     inp = input().rstrip()
     if inp == 'F':
-        with open('tests.txt','r') as f:
+        with open('tests.txt/06','r') as f:
             pattern=f.readline().strip()
             text=f.readline().strip()
     else:
@@ -17,11 +17,8 @@ def read_input():
     # second line is text in which to look for pattern 
     if not pattern.islower() or not text.islower():
         raise ValueError("")
-    
-    
 
     # return both lines in one return
-    
     # this is the sample return, notice the rstrip function
     return pattern, text
 
