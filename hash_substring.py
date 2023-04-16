@@ -13,6 +13,7 @@ def read_input():
         text=input().rstrip().lower()
     else:
         print("wrong inp")
+        return None
     # after input type choice
     # read two lines
     # first line is pattern
