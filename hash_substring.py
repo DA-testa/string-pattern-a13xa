@@ -36,12 +36,11 @@ def get_gad(pattern, text):
 
     pattern_hash = sum(ord(pattern[i])*n[m-i] for i in range(m))%p
 
-    h[0]=sum(ord(text[i])*n[m-i-1] for i in range(m))
+    h[0]=sum(ord(text[i])*n[m-i-1] for i in range(m))%p
 
-    for i in range(1,len(text)-m+1):
-        #if i+m < len(text):
-        h[i+1]=((h[i]-ord(text[i])*n[m-1])*k+ord(text[i+m]))%p
-        h[i] %=p
+    for i in range(len(text)-m+1):
+        if i+m < len(text):
+            h[i+1]=((h[i]-ord(text[i])*n[m-1])*k+ord(text[i+m]))%p
 
     gad = []
     for i in range(len(text)-m+1):
