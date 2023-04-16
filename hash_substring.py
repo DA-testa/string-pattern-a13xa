@@ -15,7 +15,11 @@ def read_input():
     # read two lines 
     # first line is pattern 
     # second line is text in which to look for pattern 
-    
+    if not 1 <= len(pattern) <= len(text) <= 5 * 10**5:
+        raise ValueError("Input strings are too large")
+    if not all(c.isalpha() and c.islower() for c in pattern + text):
+        raise ValueError("Input strings must contain only lowercase letters")
+
     # return both lines in one return
     
     # this is the sample return, notice the rstrip function
@@ -50,5 +54,4 @@ def get_gad(pattern, text):
 # this part launches the functions
 if __name__ == '__main__':
     print_gad(get_gad(*read_input()))
-
 
