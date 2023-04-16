@@ -21,7 +21,8 @@ def read_input():
 
 def print_gad(output):
     # this function should control output, it doesn't need any return
-    print(' '.join(map(str, output)))
+    #print(' '.join(map(str, output)))
+    print(" ".join([str(i) for i in output]))
 
 def get_gad(pattern, text):
     print("get_gad() funkcija")
