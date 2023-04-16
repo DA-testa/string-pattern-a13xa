@@ -6,11 +6,13 @@ def read_input():
     inp = input().rstrip()
     if inp == 'F':
         with open('./tests/06','r') as f:
-            pattern=f.readline().strip().lower()
-            text=f.readline().strip().lower()
-    else:
+            pattern=f.readline().rstrip().lower()
+            text=f.readline().rstrip().lower()
+    elif inp == 'I':
         pattern=input().rstrip().lower()
         text=input().rstrip().lower()
+    else:
+        print("wrong inp")
     # after input type choice
     # read two lines
     # first line is pattern
