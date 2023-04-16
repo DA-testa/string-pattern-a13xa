@@ -16,7 +16,7 @@ def read_input():
     # first line is pattern 
     # second line is text in which to look for pattern 
     if not pattern.islower() or not text.islower():
-        raise ValueError("")
+        raise ValueError("strings must contain only lowercase letters")
 
     # return both lines in one return
     # this is the sample return, notice the rstrip function
@@ -24,7 +24,10 @@ def read_input():
 
 def print_gad(output):
     # this function should control output, it doesn't need any return
-    print(' '.join(map(str, output)))
+    if len(output)==0:
+        print("-1")
+    else:
+        print(' '.join(map(str, output)))
 
 def get_gad(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
@@ -37,7 +40,7 @@ def get_gad(pattern, text):
         n[i]=(n[i-1]*k)%p
     pattern_hash = sum(ord(pattern[i])*n[m-i] for i in range(m))%p
     h[0]=sum(ord(text[i])*n[m-i-1] for i in range(m))%p
-    for i in range(len(text)-m):
+    for i in range(len(text)-m+1):
         h[i+1]=((h[i]-ord(text[i])*n[m-1])*k+ord(text[i+m]))%p
     gad = []
     for i in range(len(text)-m+1):
