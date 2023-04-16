@@ -6,28 +6,22 @@ def read_input():
     inp = input().rstrip()
     if inp == 'F':
         with open('./tests/06','r') as f:
-            pattern=f.readline().strip()
-            text=f.readline().strip()
+            pattern=f.readline().strip().lower()
+            text=f.readline().strip().lower()
     else:
-        pattern=input().rstrip()
-        text=input().rstrip()
+        pattern=input().rstrip().lower()
+        text=input().rstrip().lower()
     # after input type choice
-    # read two lines 
-    # first line is pattern 
-    # second line is text in which to look for pattern 
-    if not pattern.islower() or not text.islower():
-        raise ValueError("strings must contain only lowercase letters")
-
+    # read two lines
+    # first line is pattern
+    # second line is text in which to look for pattern
     # return both lines in one return
     # this is the sample return, notice the rstrip function
     return pattern, text
 
 def print_gad(output):
     # this function should control output, it doesn't need any return
-    if len(output)==0:
-        print("-1")
-    else:
-        print(' '.join(map(str, output)))
+    print(' '.join(map(str, output)))
 
 def get_gad(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
@@ -41,7 +35,7 @@ def get_gad(pattern, text):
         n[i]=(n[i-1]*k)%p
 
     pattern_hash = sum(ord(pattern[i])*n[m-i] for i in range(m))%p
-    
+
     h[0]=sum(ord(text[i])*n[m-i-1] for i in range(m))%p
 
     for i in range(len(text)-m+1):
@@ -52,7 +46,6 @@ def get_gad(pattern, text):
         if h[i] == pattern_hash:
             if text[i:i+m] == pattern:
                 gad.append(i)
-                
     # and return an iterable variable
     return gad
 
