@@ -9,8 +9,8 @@ def read_input():
             pattern=f.readline().strip()
             text=f.readline().strip()
     elif inp == 'I':
-        pattern=input().strip().lower()
-        text=input().strip().lower()
+        pattern=input().rstrip().lower()
+        text=input().rstrip().lower()
         
     else:
         print("wrong inp")
