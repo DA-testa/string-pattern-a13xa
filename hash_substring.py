@@ -15,8 +15,9 @@ def read_input():
     # read two lines 
     # first line is pattern 
     # second line is text in which to look for pattern 
-    if any(c.isupper() for c in pattern + text):
+    if not pattern.islower() or not text.islower():
         raise ValueError("")
+    
     
 
     # return both lines in one return
