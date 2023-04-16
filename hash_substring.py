@@ -53,9 +53,6 @@ def get_gad(pattern, text):
             if j == m:
                 gad.append(i)
 
-    print(f"pattern: {pattern}, text: {text}")
-    print(f"pattern_hash: {pattern_hash}, h: {h}")
-    print(f"gad: {gad}")
     # and return an iterable variable
     return gad
 
