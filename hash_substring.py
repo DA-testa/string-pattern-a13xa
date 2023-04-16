@@ -5,7 +5,7 @@ def read_input():
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     inp = input().rstrip()
     if inp == 'F':
-        with open('tests.txt/06','r') as f:
+        with open('./tests.txt/06','r') as f:
             pattern=f.readline().strip()
             text=f.readline().strip()
     else:
